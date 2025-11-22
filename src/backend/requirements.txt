@@ -1,4 +1,9 @@
-setuptools==44.1.1
-Werkzeug==0.6.1
-Jinja2==2.4
-Flask==0.5
+appdirs==1.4.4
+blinker==1.9.0
+click==8.3.1
+fissix==24.4.24
+Flask==3.1.2
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+Werkzeug==3.1.3
