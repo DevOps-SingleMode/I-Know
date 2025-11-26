@@ -1,39 +1,36 @@
 <!doctype html>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield_content(:title) : "¿Who Knows?" %></title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+<title><%= content_for?(:title) ? yield_content(:title) : "¿Who Knows?" %></title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-  <div class="page">
-    <div class="navigation">
-      <nav>
-        <h1><a id="nav-logo" href="/search">¿Who Knows?</a></h1>
-        <% if defined?(current_user) && current_user %>
-          <a id="nav-logout" href="/logout">Log out [<%= current_user.username %>]</a>
-        <% else %>
+<div class="page">
+<div class="navigation">
+<nav>
+<h1><a id="nav-logo" href="/">¿Who Knows?</a></h1>
+<% if @current_user %>
+          <a id="nav-logout" href="/api/logout">Log out [<%= @current_user['username'] %>]</a>
+<% else %>
           <a id="nav-login" href="/login">Log in</a>
-          <a id="nav-register" href="/register">Register</a>
-        <% end %>
+<a id="nav-register" href="/register">Register</a>
+<% end %>
       </nav>
-    </div>
-
-    <% if defined?(flash) && flash.any? %>
+</div>
+<% if defined?(flash) && flash.any? %>
       <ul class="flashes">
-        <% flash.each do |type, message| %>
+<% flash.each do |type, message| %>
           <li><%= message %></li>
-        <% end %>
+<% end %>
       </ul>
-    <% end %>
-
+<% end %>
     <div class="body">
-      <%= yield %>
+<%= yield %>
     </div>
-
-    <div class="footer">
-      <span>¿Who Knows? &copy; 2009</span>
-      <a href="/about">About</a>
-    </div>
-  </div>
+<div class="footer">
+<span>¿Who Knows? &copy; 2009</span>
+<a href="/about">About</a>
+</div>
+</div>
 </body>
 </html>

@@ -11,8 +11,8 @@
   <% if defined?(search_results) && search_results %>
     <% search_results.each do |result| %>
       <div>
-        <h2><a class="search-result-title" href="<%= result[:url] %>"><%= result[:title] %></a></h2>
-        <p class="search-result-description"><%= result[:description] %></p>
+        <h2><a class="search-result-title" href="<%= result['url'] %>"><%= result['title'] %></a></h2>
+        <p class="search-result-description"><%= result['description'] %></p>
       </div>
     <% end %>
   <% end %>

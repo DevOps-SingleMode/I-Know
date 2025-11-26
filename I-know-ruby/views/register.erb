@@ -4,8 +4,8 @@
 
 <h2>Sign Up</h2>
 
-<% if defined?(error) && error %>
-  <div class="error"><strong>Error:</strong> <%= error %></div>
+<% if @error %>
+  <div class="error"><strong>Error:</strong> <%= @error %></div>
 <% end %>
 
 <form action="/api/register" method="POST">

@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.3.0)
+    dotenv (3.1.8)
     logger (1.7.0)
     multi_json (1.17.0)
     mustermann (3.0.4)
@@ -27,23 +28,28 @@ GEM
       rack-protection (= 4.2.1)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
+    sinatra-content-for (0.1)
+      sinatra
     sinatra-contrib (4.2.1)
       multi_json (>= 0.0.2)
       mustermann (~> 3.0)
       rack-protection (= 4.2.1)
       sinatra (= 4.2.1)
       tilt (~> 2.0)
+    sqlite3 (2.8.0-x86_64-linux-gnu)
     tilt (2.6.1)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
+  dotenv (~> 3.1)
   puma (~> 7.1)
   rackup (~> 2.2)
   sinatra
+  sinatra-content-for
   sinatra-contrib
+  sqlite3
 
 BUNDLED WITH
    2.7.2
