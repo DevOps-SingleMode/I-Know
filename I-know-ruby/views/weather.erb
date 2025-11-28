@@ -1,0 +1,8 @@
+<h1>Vejret i dag</h1>
+
+<% if @weather && @weather["main"] && @weather["weather"] %>
+  <p>Temperatur: <%= @weather["main"]["temp"] %> °C</p>
+  <p>Beskrivelse: <%= @weather["weather"][0]["description"] %></p>
+<% else %>
+  <p>Fejl: <%= @error_message %></p>
+<% end %>

@@ -4,6 +4,8 @@ require "sinatra/content_for"
 require "sqlite3"
 require "digest"
 require "dotenv/load"
+require "json"
+require "httparty"
 
 module IKnow
   class App < Sinatra::Base
@@ -63,7 +65,53 @@ module IKnow
       erb :register
     end
 
+    get "/doc" do
+      erb :doc
+    end
+    
+    get "/doc/openapi.yml" do
+      send_file File.expand_path("../../doc/openapi.yml", __FILE__)
+    end
+
+    CACHE_TTL = 600
+    $weather_cache = { data: nil, timestamp: nil}
+
+    get "/weather" do 
+      response = HTTParty.get("http://localhost:4567/api/weather")
+      parsed = response.parsed_response
+      @weather = parsed["data"]
+
+      if @weather && @weather["main"]
+        @temp = @weather["main"]["temp"]
+      else
+        @temp = nil
+        @error_message = @weather ? @weather["message"] : "Ingen data modtaget"
+      end
+
+      erb :weather
+    end
+
     # API
+
+    get "/api/weather" do
+      content_type :json
+
+      if $weather_cache[:data] && Time.now - $weather_cache[:timestamp] < CACHE_TTL
+        return { data: $weather_cache[:data] }.to_json
+      end
+
+      api_key = ENV["WEATHER_API_KEY"]
+      external = HTTParty.get(
+        "https://api.openweathermap.org/data/2.5/weather",
+        query: { q: "Copenhagen", units: "metric", appid: api_key}
+      )
+
+      weather_data = external.parsed_response
+      $weather_cache = { data: weather_data, timestamp: Time.now }
+
+      { data: weather_data }.to_json
+      end
+
     post "/api/login" do
       username = params["username"]
       password = params["password"]
