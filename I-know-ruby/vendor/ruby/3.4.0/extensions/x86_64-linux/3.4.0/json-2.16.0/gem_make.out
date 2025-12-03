@@ -11,16 +11,16 @@ checking for cpuid.h... yes
 creating Makefile
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/json-2.16.0/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20251128-33989-xxh9ha sitelibdir\=./.gem.20251128-33989-xxh9ha clean
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-83ff62 sitelibdir\=./.gem.20251201-113609-83ff62 clean
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/json-2.16.0/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20251128-33989-xxh9ha sitelibdir\=./.gem.20251128-33989-xxh9ha
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-83ff62 sitelibdir\=./.gem.20251201-113609-83ff62
 compiling parser.c
 linking shared-object json/ext/parser.so
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/json-2.16.0/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20251128-33989-xxh9ha sitelibdir\=./.gem.20251128-33989-xxh9ha install
-/usr/bin/install -c -m 0755 parser.so ./.gem.20251128-33989-xxh9ha/json/ext
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-83ff62 sitelibdir\=./.gem.20251201-113609-83ff62 install
+/usr/bin/install -c -m 0755 parser.so ./.gem.20251201-113609-83ff62/json/ext
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/json-2.16.0/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20251128-33989-xxh9ha sitelibdir\=./.gem.20251128-33989-xxh9ha clean
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-83ff62 sitelibdir\=./.gem.20251201-113609-83ff62 clean
