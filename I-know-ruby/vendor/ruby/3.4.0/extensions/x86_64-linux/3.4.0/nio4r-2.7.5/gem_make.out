@@ -13,10 +13,10 @@ checking for sys/resource.h... yes
 creating Makefile
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/nio4r-2.7.5/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20251126-195079-sn55 sitelibdir\=./.gem.20251126-195079-sn55 clean
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-ks85qo sitelibdir\=./.gem.20251201-113609-ks85qo clean
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/nio4r-2.7.5/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20251126-195079-sn55 sitelibdir\=./.gem.20251126-195079-sn55
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-ks85qo sitelibdir\=./.gem.20251201-113609-ks85qo
 compiling bytebuffer.c
 compiling monitor.c
 compiling nio4r_ext.c
@@ -46,8 +46,8 @@ selector.c:525:5: warning: ignoring return value of ‘write’ declared with at
 linking shared-object nio4r_ext.so
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/nio4r-2.7.5/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20251126-195079-sn55 sitelibdir\=./.gem.20251126-195079-sn55 install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20251126-195079-sn55
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-ks85qo sitelibdir\=./.gem.20251201-113609-ks85qo install
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20251201-113609-ks85qo
 
 current directory: /home/mastercarlsen/Desktop/Devops-projects/I-Knows/I-know-ruby/vendor/ruby/3.4.0/gems/nio4r-2.7.5/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20251126-195079-sn55 sitelibdir\=./.gem.20251126-195079-sn55 clean
+make DESTDIR\= sitearchdir\=./.gem.20251201-113609-ks85qo sitelibdir\=./.gem.20251201-113609-ks85qo clean

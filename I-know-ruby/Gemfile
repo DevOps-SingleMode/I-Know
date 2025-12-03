@@ -15,3 +15,7 @@ gem "dotenv", "~> 3.1"
 gem "json", "~> 2.16"
 
 gem "httparty", "~> 0.23.2"
+
+gem "rubocop", "~> 1.81"
+
+gem "reek", "~> 6.5"
