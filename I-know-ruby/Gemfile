@@ -1,21 +1,20 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # gem "rails"
-gem "sinatra"
-gem "sinatra-contrib"
-gem "sinatra-content-for"
-gem "rackup", "~> 2.2"
-gem "puma", "~> 7.1"
-gem "sqlite3"
-gem "dotenv", "~> 3.1"
+gem 'dotenv', '~> 3.1'
+gem 'puma', '~> 7.1'
+gem 'rackup', '~> 2.2'
+gem 'sinatra'
+gem 'sinatra-content-for'
+gem 'sinatra-contrib'
+gem 'sqlite3'
 
+gem 'json', '~> 2.16'
 
-gem "json", "~> 2.16"
+gem 'httparty', '~> 0.23.2'
 
-gem "httparty", "~> 0.23.2"
+gem 'rubocop', '~> 1.81'
 
-gem "rubocop", "~> 1.81"
-
-gem "reek", "~> 6.5"
+gem 'reek', '~> 6.5'
