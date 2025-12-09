@@ -24,7 +24,7 @@ module IKnow
       set :session_secret, ENV.fetch('SESSION_SECRET')
       set :views, File.expand_path('../../views', __dir__)
       set :public_folder, File.expand_path('../../public', __dir__)
-      set :database_path, ENV.fetch('DATABASE_PATH')
+      set :database_path, ENV['DATABASE'] || ENV.fetch('DATABASE_PATH')
       set :bind, '0.0.0.0'
     end
 
@@ -46,9 +46,23 @@ module IKnow
         Digest::MD5.hexdigest(password)
       end
 
-      def verify_password(stored_hash, password)
+      def verify_password?(stored_hash, password)
         stored_hash == hash_password(password)
       end
+    end
+
+    def self.init_db
+      return unless ENV['RACK_ENV'] == 'test'
+
+      schema_path = File.expand_path('../../db/schema.sql', __dir__)
+      db_path = ENV['DATABASE'] || settings.database_path
+
+      # Create a fresh DB file for the test run
+      FileUtils.rm_f(db_path)
+
+      db = SQLite3::Database.new(db_path)
+      db.execute_batch(File.read(schema_path))
+      db.close
     end
 
     register PagesRoutes
