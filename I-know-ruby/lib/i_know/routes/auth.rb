@@ -70,7 +70,7 @@ module AuthRoutes
 
     def login_error(user, password)
       return 'Invalid username' if user.nil?
-      return 'Invalid password' unless verify_password(user['password'], password)
+      return 'Invalid password' unless verify_password?(user['password'], password)
 
       nil
     end

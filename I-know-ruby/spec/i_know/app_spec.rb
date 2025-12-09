@@ -5,13 +5,13 @@ require 'spec_helper'
 require 'tempfile'
 require 'nokogiri'
 
-RSpec.describe 'Auth API' do
+RSpec.describe IKnow::App, type: :request do
   let(:db_file) { Tempfile.new('test.db') }
 
   before do
     ENV['RACK_ENV'] = 'test'
     ENV['DATABASE'] = db_file.path
-    IKnow::App.init_db
+    described_class.init_db
   end
 
   after do
@@ -111,12 +111,6 @@ RSpec.describe 'Auth API' do
     it 'fails login with wrong username' do
       rv = login('user2', 'wrongpassword')
       expect(error_message(rv)).to include('Invalid username')
-    end
-  end
-
-  describe 'search' do
-    it 'searches' do
-      # Add search tests when implemented
     end
   end
 end
