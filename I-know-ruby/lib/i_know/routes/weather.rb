@@ -86,7 +86,7 @@ module WeatherRoutes
     end
 
     def request_weather_api
-      api_key = ENV['WEATHER_API_KEY']
+      api_key = ENV.fetch('WEATHER_API_KEY', nil)
       response = HTTParty.get(
         'https://api.openweathermap.org/data/2.5/weather',
         query: {

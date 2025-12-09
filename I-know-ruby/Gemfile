@@ -18,3 +18,11 @@ gem 'httparty', '~> 0.23.2'
 gem 'rubocop', '~> 1.81'
 
 gem 'reek', '~> 6.5'
+
+group :test do
+  gem 'nokogiri', '~> 1.18'
+  gem 'rack-test', '~> 2.2'
+  gem 'rspec', '~> 3.13'
+end
+
+gem 'rubocop-rspec', '~> 3.8', group: :test
