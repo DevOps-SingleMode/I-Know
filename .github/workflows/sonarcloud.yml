@@ -26,6 +26,11 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
 
+      - name: Prepare test database
+        run: |
+          mkdir -p db
+          sqlite3 db/whoknows.db < db/schema.sql
+
       - name: Run tests with coverage
         run: bundle exec rspec
 
