@@ -35,6 +35,8 @@ jobs:
         run: |
           bundle exec rspec
           ls -l coverage/   # Debug: sørg for coverage.json findes
+      - name: Check coverage file
+        run: cat coverage/coverage.json
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
