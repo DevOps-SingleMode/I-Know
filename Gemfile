@@ -24,5 +24,5 @@ group :test do
   gem 'rack-test', '~> 2.2'
   gem 'rspec', '~> 3.13'
   gem 'rubocop-rspec', '~> 3.8'
-  gem "simplecov", require: false
+  gem 'simplecov', require: false
 end
