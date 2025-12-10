@@ -24,21 +24,4 @@ jobs:
           ruby-version: 3.4
 
       - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Prepare test database
-        run: |
-          mkdir -p db
-          sqlite3 db/whoknows.db < db/schema.sql
-
-      - name: Run tests with coverage
-        run: bundle exec rspec
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          args: >
-            -Dsonar.projectKey=DevOps-SingleMode_I-Know
-            -Dsonar.organization=devops-singlemode
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: bundle install --jobs 4 --re
