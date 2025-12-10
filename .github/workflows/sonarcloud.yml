@@ -37,6 +37,8 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
-          projectKey: DevOps-SingleMode_I-Know
-          organization: DevOps-SingleMode
-          token: ${{ secrets.SONAR_TOKEN }}
+          args: >
+            -Dsonar.projectKey=DevOps-SingleMode_I-Know
+            -Dsonar.organization=DevOps-SingleMode
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
