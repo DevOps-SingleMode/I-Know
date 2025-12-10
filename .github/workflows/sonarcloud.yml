@@ -13,6 +13,7 @@ jobs:
     env:
       SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      DATABASE_PATH: ${{ secrets.DATABASE_PATH }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
