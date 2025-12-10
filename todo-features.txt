@@ -1,2 +1,2 @@
-try implement sonarqube/sonarlint for project
+Fix sonarcloud so it does work for real and the coverage is not 0%
 implement hadolint for dockerfiles when it makes sense
