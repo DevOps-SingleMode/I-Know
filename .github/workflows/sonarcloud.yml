@@ -44,5 +44,5 @@ jobs:
             -Dsonar.organization=devops-singlemode
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.sources=lib
+            -Dsonar.sources=.
             -Dsonar.ruby.coverage.reportPaths=${{ github.workspace }}/coverage/coverage.json
