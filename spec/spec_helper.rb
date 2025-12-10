@@ -13,7 +13,6 @@ SimpleCov.start do
 end
 
 ENV['RACK_ENV'] = 'test'
-ENV['DATABASE'] ||= File.join(Dir.pwd, 'db/test.db') # fallback path
 
 require 'rack/test'
 require 'rspec'
