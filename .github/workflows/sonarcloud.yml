@@ -41,6 +41,11 @@ jobs:
       - name: Fix coverage file paths
         run: sed -i "s|${GITHUB_WORKSPACE}/||g" coverage/coverage.json
 
+      - name: Debug modified coverage 
+        run: cat coverage/coverage.json
+      - run: pwd
+      - run: echo $GITHUB_WORKSPACE
+        
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
@@ -50,3 +55,4 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.sources=.
+            -Dsonar.tests=spec
