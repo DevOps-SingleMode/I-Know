@@ -25,4 +25,5 @@ group :test do
   gem 'rspec', '~> 3.13'
   gem 'rubocop-rspec', '~> 3.8'
   gem 'simplecov', require: false
+  gem 'simplecov-json'
 end
