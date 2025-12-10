@@ -5,7 +5,7 @@ require 'spec_helper'
 require 'tempfile'
 require 'nokogiri'
 
-  RSpec.describe IKnow::App, type: :request do
+RSpec.describe IKnow::App, type: :request do
   let(:db_file) { Tempfile.new('test.db') }
 
   before do
