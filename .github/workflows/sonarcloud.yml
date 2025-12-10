@@ -1,4 +1,4 @@
-name: SonarCloud Analysis
+name: SonarCloud
 
 on:
   push:
@@ -9,58 +9,28 @@ on:
 
 jobs:
   sonarcloud:
+    name: SonarCloud Scan
     runs-on: ubuntu-latest
-    env:
-      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      DATABASE_PATH: ${{ secrets.DATABASE_PATH }}  # Adjust if needed; ensure it matches your app's env
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Updated to latest version
+        uses: actions/checkout@v3
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4'  # Match your project's Ruby version
-          bundler-cache: true  # Cache gems for faster runs
+          ruby-version: 3.4
 
       - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Prepare test database
         run: |
-          mkdir -p db
-          sqlite3 db/test.db < db/schema.sql  # Align with your specs' DB path (test.db)
+          gem install bundler
+          bundle install --jobs 4 --retry 3
 
       - name: Run tests with coverage
         run: bundle exec rspec
 
-      - name: Debug coverage directory
-        run: ls -l coverage/  # Check if coverage.json exists
-
-      - name: Check original coverage file
-        run: cat coverage/coverage.json || echo "No coverage.json found"
-
-      - name: Fix coverage file paths
-        run: sed -i 's@"'"${GITHUB_WORKSPACE}"'/@"/github/workspace/@g' coverage/coverage.json  # Fix for Sonar container paths
-
-      - name: Debug modified coverage
-        run: cat coverage/coverage.json || echo "No coverage.json after fix"
-
-      - name: Unshallow repository
-        run: git fetch --unshallow  # Fix shallow clone for better SCM blame
-
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2.3.0  # Latest version
+        uses: SonarSource/sonarcloud-github-action@v2
         with:
-          args: >
-            -Dsonar.verbose=true
-            -Dsonar.projectKey=DevOps-SingleMode_I-Know
-            -Dsonar.organization=devops-singlemode
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.sources=lib
-            -Dsonar.tests=spec
-            -Dsonar.ruby.coverage.reportPaths=coverage/coverage.json
-            -Dsonar.exclusions=**/vendor/**,**/coverage/**,**/db/migrations/**  # Exclude non-code dirs
+          projectKey: DevOps-SingleMode_I-Know
+          organization: DevOps-SingleMode
+          token: ${{ secrets.SONAR_TOKEN }}
