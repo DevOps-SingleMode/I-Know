@@ -1,0 +1,7 @@
+# .rubocop.yml
+plugins:
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.4 # sæt den til din Ruby-version
