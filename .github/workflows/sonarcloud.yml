@@ -57,3 +57,4 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.sources=lib
             -Dsonar.tests=spec
+            -Dsonar.ruby.coverage.reportPaths=coverage/coverage.json
