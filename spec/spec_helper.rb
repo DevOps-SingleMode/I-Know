@@ -7,10 +7,9 @@ SimpleCov.start do
   add_filter '/spec/'
 
   formatter SimpleCov::Formatter::MultiFormatter.new([
-    SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::JSONFormatter
-  ])
-
+                                                       SimpleCov::Formatter::HTMLFormatter,
+                                                       SimpleCov::Formatter::JSONFormatter
+                                                     ])
 end
 
 ENV['RACK_ENV'] = 'test'
