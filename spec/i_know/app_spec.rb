@@ -10,7 +10,7 @@ RSpec.describe IKnow::App, type: :request do
 
   before do
     ENV['RACK_ENV'] = 'test'
-    ENV['DATABASE'] = db_file.path
+    ENV['DATABASE'] ||= File.join(Dir.pwd, 'db/test.db')
     described_class.init_db
   end
 
