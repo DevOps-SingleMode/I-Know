@@ -39,6 +39,6 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=DevOps-SingleMode_I-Know
-            -Dsonar.organization=DevOps-SingleMode
+            -Dsonar.organization=devops-singlemode
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
