@@ -1,0 +1,2 @@
+try implement sonarqube/sonarlint for project
+implement hadolint for dockerfiles when it makes sense
